@@ -2,12 +2,14 @@
 
 #include <iostream>
 
-Printer::Printer(std::string toPrint)
+template <typename T>
+Printer<T>::Printer(T toPrint)
 {
   m_toPrint = toPrint;
 }
 
-void Printer::print()
+template <typename T>
+void Printer<T>::print()
 {
   std::cout << m_toPrint;
 }

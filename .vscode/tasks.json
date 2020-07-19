@@ -4,16 +4,7 @@
     {
       "label": "Debug",
       "type": "shell",
-      "command": "clang++",
-      "args": [
-        "-std=c++17",
-        "-g",
-        "${workspaceFolder}\\",
-        "-I${workspaceFolder}\\src",
-        "-L${workspaceFolder}\\src",
-        "-o",
-        "bin/Debug/Test.exe"
-      ],
+      "command": "make",
       "options": {
         "cwd": "${workspaceFolder}"
       },
@@ -25,13 +16,9 @@
     {
       "label": "Release",
       "type": "shell",
-      "command": "clang++",
+      "command": "make",
       "args": [
-        "-std=c++17",
-        "-stdlib=libc++",
-        "main.cpp",
-        "-o",
-        "bin/Release/Test.exe"
+        "CONFIG=Release"
       ],
       "options": {
         "cwd": "${workspaceFolder}"
@@ -40,32 +27,6 @@
         "$gcc"
       ],
       "group": "build"
-    },
-    {
-      "label": "Build and Run",
-      "type": "shell",
-      "command": ".\\Release\\Test.exe",
-      "dependsOn": [
-        "Release"
-      ],
-      "group": "build",
-      "options": {
-        "cwd": "${workspaceFolder}"
-      },
-      "problemMatcher": [
-        "$gcc"
-      ]
-    },
-    {
-      "label": "Build all",
-      "dependsOn": [
-        "Debug",
-        "Release"
-      ],
-      "group": "build",
-      "problemMatcher": [
-        "$gcc"
-      ]
     }
   ]
 }

@@ -1,11 +1,12 @@
 #include <string>
 
+template <typename T>
 class Printer
 {
 public:
-  Printer(std::string toPrint);
+  Printer(T toPrint);
   void print();
 
 private:
-  std::string m_toPrint;
+  T m_toPrint;
 };
