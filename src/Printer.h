@@ -1,12 +1,23 @@
 #include <string>
+#include <iostream>
 
-template <typename T>
+template <class T>
 class Printer
 {
 public:
-  Printer(T toPrint);
+  Printer(T toPrint)
+  {
+    m_toPrint = toPrint;
+  }
+
   void print();
 
 private:
   T m_toPrint;
 };
+
+template <typename T>
+inline void Printer<T>::print()
+{
+  std::cout << m_toPrint << std::endl;
+}
