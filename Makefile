@@ -1,6 +1,6 @@
 # Variables
 # NOTE: Pass CONFIG variable on command line
-CC = clang++
+CC = g++
 LINKERFLAG = -lm
 STD = -std=c++17
 CFLAGS = -Wall

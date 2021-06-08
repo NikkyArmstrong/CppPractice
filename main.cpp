@@ -1,17 +1,19 @@
- #include <iostream>
+#include <iostream>
 
 class Base
 {
+public:
     Base() {}
     virtual ~Base() {}
 };
 
 class Derived : public Base
 {
+public:
     Derived(int size)
     {
         m_Size = size;
-        m_Data = new int[size]; 
+        m_Data = new int[size];
     }
 
     ~Derived()
@@ -21,7 +23,7 @@ class Derived : public Base
 
     bool Equals(Derived other)
     {
-        if (m_Size = other.m_Size)
+        if (m_Size == other.m_Size)
         {
             return true;
         }
@@ -29,13 +31,13 @@ class Derived : public Base
     }
 
     int m_Size;
-    int * m_Data;
+    int *m_Data;
 };
 
 int main()
 {
-    Derived * d = new Derived(5);
-    Base * b = new Derived(*d);
+    Derived *d = new Derived(5);
+    Base *b = new Derived(*d);
 
     if (d->Equals(6))
     {
