@@ -2,7 +2,7 @@
 # NOTE: Pass CONFIG variable on command line
 CC = g++
 LINKERFLAG = -lm
-STD = -std=c++17
+STD = -std=c++2a
 CFLAGS = -Wall
 DEBUG =
 
@@ -19,6 +19,7 @@ endif
 OUTDIR = bin/${CONFIG}
 BINARY = ${OUTDIR}/Test.exe
 OBJDIR = bin/obj
+LIBDIR = lib
 
 # Set input files
 SOURCEDIR = src
@@ -33,6 +34,7 @@ all: clean build
 
 build: ${OBJECTS} ${OBJDIR}/main.o
 	${CC} ${CFLAGS} ${STD} ${DEBUG} -o ${BINARY} $^
+	cp ${LIBDIR}/*.* ${OUTDIR}
 
 ${OBJDIR}/%.o: ${SOURCEDIR}/%.cpp ${HEADERS}
 	${CC} ${CFLAGS} ${STD} ${DEBUG} -c -o $@ $<

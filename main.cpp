@@ -1,49 +1,23 @@
+#ifndef _SILENCE_CLANG_CONCEPTS_MESSAGE
+#define _SILENCE_CLANG_CONCEPTS_MESSAGE
+#endif
+
+#include <vector>
 #include <iostream>
-
-class Base
-{
-public:
-    Base() {}
-    virtual ~Base() {}
-};
-
-class Derived : public Base
-{
-public:
-    Derived(int size)
-    {
-        m_Size = size;
-        m_Data = new int[size];
-    }
-
-    ~Derived()
-    {
-        delete m_Data;
-    }
-
-    bool Equals(Derived other)
-    {
-        if (m_Size == other.m_Size)
-        {
-            return true;
-        }
-        return false;
-    }
-
-    int m_Size;
-    int *m_Data;
-};
+#include <algorithm>
+#include <ranges>
 
 int main()
 {
-    Derived *d = new Derived(5);
-    Base *b = new Derived(*d);
+    std::cout << "Hello" << std::endl;
 
-    if (d->Equals(6))
+    std::vector<int> test{1, 2, 3, 4, 5, 6, 7};
+
+    for (auto i : test | std::views::filter([](int i)
+                                            { return i % 2 == 0; }))
     {
-        std::cout << "Equal!" << std::endl;
+        std::cout << i;
     }
 
-    delete d;
-    delete b;
+    std::cout << std::endl;
 }
