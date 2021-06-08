@@ -1,11 +1,19 @@
+#pragma once
+
 #include <string>
 #include <iostream>
 
-template <class T>
+enum ETestType
+{
+  TypeOne,
+  TypeTwo
+};
+
+template <ETestType T>
 class Printer
 {
 public:
-  Printer(T toPrint)
+  Printer(int toPrint)
   {
     m_toPrint = toPrint;
   }
@@ -13,11 +21,17 @@ public:
   void print();
 
 private:
-  T m_toPrint;
+  int m_toPrint;
 };
 
-template <typename T>
+template <ETestType T>
 inline void Printer<T>::print()
 {
   std::cout << m_toPrint << std::endl;
+}
+
+template <>
+inline void Printer<ETestType::TypeOne>::print()
+{
+  std::cout << "specialisation!" << std::endl;
 }

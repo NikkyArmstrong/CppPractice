@@ -2,7 +2,7 @@
 # NOTE: Pass CONFIG variable on command line
 CC = clang++
 LINKERFLAG = -lm
-STD = -std=c++17
+STD = -std=c++20
 CFLAGS = -Wall
 DEBUG =
 

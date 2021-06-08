@@ -2,16 +2,12 @@
 #include <string>
 
 #include "src\Printer.h"
+#include "src\Tester.h"
 
 int main()
 {
-    std::cout << "Print what?" << std::endl;
-    std::string input;
-    std::getline(std::cin, input);
-
-    Printer<std::string> myPrinter(input);
-    myPrinter.print();
-
-    Printer<double> myFloatPrinter(4.5);
-    myFloatPrinter.print();
+    Printer<ETestType::TypeOne> printer1(42);
+    Printer<ETestType::TypeTwo> printer2(56);
+    printer1.print();
+    printer2.print();
 }
