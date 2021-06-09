@@ -1,7 +1,3 @@
-#ifndef _SILENCE_CLANG_CONCEPTS_MESSAGE
-#define _SILENCE_CLANG_CONCEPTS_MESSAGE
-#endif
-
 #include <vector>
 #include <iostream>
 #include <algorithm>
@@ -13,10 +9,16 @@ int main()
 
     std::vector<int> test{1, 2, 3, 4, 5, 6, 7};
 
-    for (auto i : test | std::views::filter([](int i)
-                                            { return i % 2 == 0; }))
+    auto evens = [](int i)
+    { return i % 2 == 0; };
+    auto square = [](int i)
+    { return i * i; };
+
+    for (auto i : test | std::views::filter(evens)
+                       | std::views::transform(square)
+                       | std::views::take_while([](int i) { return i < 10; }))
     {
-        std::cout << i;
+        std::cout << i << ' ';
     }
 
     std::cout << std::endl;

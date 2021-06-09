@@ -2,7 +2,7 @@
 # NOTE: Pass CONFIG variable on command line
 CC = g++
 LINKERFLAG = -lm
-STD = -std=c++2a
+STD = -std=c++20
 CFLAGS = -Wall
 DEBUG =
 
