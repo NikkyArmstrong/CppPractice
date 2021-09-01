@@ -2,6 +2,13 @@
 #include <iostream>
 #include <algorithm>
 #include <ranges>
+#include <concepts>
+#include <type_traits>
+
+#include "src/Printer.h"
+
+template <typename T>
+concept Number = std::is_integral<T>;
 
 int main()
 {
