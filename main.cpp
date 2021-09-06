@@ -4,10 +4,18 @@
 #include "src\Printer.h"
 #include "src\Tester.h"
 
+class Factory
+{
+public:
+    Tester CreateTester(int i)
+    {
+        return Tester(i);
+    }
+};
+
 int main()
 {
-    Printer<ETestType::TypeOne> printer1(42);
-    Printer<ETestType::TypeTwo> printer2(56);
-    printer1.print();
-    printer2.print();
+    bool test = true;
+
+    test ? std::cout << "true" : std::cout << "false";
 }
