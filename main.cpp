@@ -13,9 +13,29 @@ public:
     }
 };
 
+class Base
+{
+
+public:
+    virtual void Test() { std::cout << "base" << std::endl; }
+};
+
+class Derived : public Base
+{
+
+};
+
+class DerivedDerived : public Derived
+{
+public:
+    void Test() override { std::cout << "derivedderived" << std::endl; }
+};
+
 int main()
 {
-    bool test = true;
+    std::cout << x << std::endl;
+    std::cout << l << std::endl;
 
-    test ? std::cout << "true" : std::cout << "false";
+    DerivedDerived d;
+    d.Test();
 }
