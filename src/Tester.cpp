@@ -34,12 +34,12 @@ Tester &Tester::operator=(Tester rhs)
   return *this;
 }
 
-// void Tester::call()
-// {
-//   myPrinter->print();
-// }
+void Tester::call()
+{
+  myPrinter->print();
+}
 
-// void Tester::set(int value)
-// {
-//   myPrinter->set(value);
-// }
+void Tester::set(int value)
+{
+  myPrinter->setToPrint(value);
+}

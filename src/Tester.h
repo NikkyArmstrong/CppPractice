@@ -13,7 +13,7 @@ public:
   Tester &operator=(Tester rhs);
 
   void call();
-//   void set(int value);
+  void set(int value);
 
   friend void swap(Tester &first, Tester &second)
   {
