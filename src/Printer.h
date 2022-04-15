@@ -3,23 +3,43 @@
 #include <string>
 #include <iostream>
 
-// enum ETestType
-// {
-//   TypeOne,
-//   TypeTwo
-// };
+enum ETestType
+{
+  TypeOne,
+  TypeTwo
+};
 
-template <typename T>
+template <ETestType T>
 class Printer
 {
 public:
   Printer(int toPrint)
+  : m_toPrint(toPrint)
   {
-    m_toPrint = toPrint;
+    std::cout << "constructor" << std::endl;
   }
 
-  Printer(const Printer<ETestType::TypeOne>& from) {
-    m_toPrint = from.getToPrint();
+  ~Printer()
+  {
+    std::cout << "destructor" << std::endl;
+  }
+
+  Printer(const Printer<ETestType::TypeOne>& from)
+  : m_toPrint(from.getToPrint())
+  {
+    std::cout << "copy constructor - type converstion One -> Two" << std::endl;
+  }
+
+  Printer(const Printer<ETestType::TypeTwo>& from)
+  : m_toPrint(from.getToPrint())
+  {
+    std::cout << "copy constructor - type converstion Two -> One" << std::endl;
+  }
+
+  Printer &operator=(Printer rhs)
+  {
+    m_toPrint = rhs.getToPrint();
+    std::cout << "copy assignment" << std::endl;
   }
 
   void print();
@@ -29,14 +49,14 @@ private:
   int m_toPrint;
 };
 
-// template <ETestType T>
-// inline void Printer<T>::print()
-// {
-//   std::cout << m_toPrint << std::endl;
-// }
+template <ETestType T>
+void Printer<T>::print()
+{
+  std::cout << m_toPrint << std::endl;
+}
 
-// template <>
-// inline void Printer<ETestType::TypeOne>::print()
-// {
-//   std::cout << "specialisation!" << std::endl;
-// }
+template <>
+void Printer<ETestType::TypeOne>::print()
+{
+  std::cout << "specialisation!" << std::endl;
+}
