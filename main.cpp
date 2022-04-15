@@ -1,18 +1,15 @@
 #include <iostream>
 #include <string>
 
-#include "src\Printer.h"
-#include "src\Tester.h"
+#include "src\Character.h"
 
 int main()
 {
-    Printer<ETestType::TypeOne> printer1(42);
-    Printer<ETestType::TypeTwo> printer2(56);
-    printer1.print();
-    printer2.print();
+    Character character;
 
-    Printer<ETestType::TypeTwo> printer3 = static_cast<Printer<ETestType::TypeTwo>>(printer1);
+    character.moveTo();
 
-    printer1.print();
-    printer3.print();
+    character.switchState(EState::Fly);
+
+    character.moveTo();
 }
