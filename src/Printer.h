@@ -18,7 +18,12 @@ public:
     m_toPrint = toPrint;
   }
 
+  Printer(const Printer<ETestType::TypeOne>& from) {
+    m_toPrint = from.getToPrint();
+  }
+
   void print();
+  int getToPrint() const { return m_toPrint; }
 
 private:
   int m_toPrint;
