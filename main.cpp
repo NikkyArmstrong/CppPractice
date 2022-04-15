@@ -4,7 +4,7 @@ class Base
 {
 public:
     Base() {}
-    virtual ~Base() {}
+    ~Base() {}
 };
 
 class Derived : public Base
